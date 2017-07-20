@@ -26,7 +26,7 @@ configure-stamp:
 
 build: build-stamp
 
-build-stamp: configure-stamp patch-stamp
+build-stamp: configure-stamp
 	dh_testdir
 
 	# Add here commands to compile the package.
@@ -34,7 +34,7 @@ build-stamp: configure-stamp patch-stamp
 
 	touch build-stamp
 
-clean: unpatch
+clean:
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp configure-stamp
@@ -94,4 +94,4 @@ binary-arch: build install
 	dh_builddeb
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure patch unpatch
+.PHONY: build clean binary-indep binary-arch binary install configure
