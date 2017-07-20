@@ -78,6 +78,7 @@ extern char      	acctreason;
 extern char		deviatonly;
 extern char		usecolors;
 extern char		threadview;
+extern char		diskpartview;
 extern char		calcpss;
 extern char		rawname[];
 extern char		rawreadflag;

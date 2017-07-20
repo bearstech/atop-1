@@ -322,6 +322,7 @@ char		deviatonly = 1;
 char      	usecolors  = 1;  /* boolean: colors for high occupation  */
 char		threadview = 0;	 /* boolean: show individual threads     */
 char      	calcpss    = 0;  /* boolean: read/calculate process PSS  */
+char		diskpartview = 0; /* boolean: show disk partitions       */
 
 unsigned short	hertz;
 unsigned int	pagesize;
@@ -549,6 +550,10 @@ main(int argc, char *argv[])
                            case 'e':		/* end   time ?               */
 				if ( !hhmm2secs(optarg, &endtime) )
 					prusage(argv[0]);
+				break;
+
+                           case 'j':		/* show disk partitions statistics */
+				diskpartview = 1;
 				break;
 
                            case 'P':		/* parseable output?          */

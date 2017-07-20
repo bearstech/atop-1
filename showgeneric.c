@@ -2047,6 +2047,23 @@ generic_samp(time_t curtime, int nsecs,
 				firstproc = 0;
 				break;
 
+ 			   /*
+			   ** toggle disk partitions info
+			   */
+			   case MDISKPART:
+				if (diskpartview)
+				{
+					diskpartview = 0;
+					statmsg      = "Disk partitions view disabled";
+				}
+				else
+				{
+					diskpartview = 1;
+					statmsg    = "Disk partitions view enabled";
+				}
+				firstproc  = 0;
+				break;
+
 			   /*
 			   ** reset statistics 
 			   */
@@ -2685,6 +2702,13 @@ generic_init(void)
 			limitedlines();
 			break;
 
+		   case MDISKPART:
+			if (diskpartview)
+				diskpartview = 0;
+			else
+				diskpartview = 1;
+			break;
+
 		   default:
 			prusage("atop");
 		}
@@ -2820,6 +2844,8 @@ static struct helptext {
 								MCOLORS},
 	{"\t'%c'  - show average-per-second i.s.o. total values    (toggle)\n",
 								MAVGVAL},
+	{"\t'%c'  - show per partition disk statistics             (toggle)\n",
+								MDISKPART},
 	{"\t'%c'  - calculate proportional set size (PSIZE)        (toggle)\n",
 								MCALCPSS},
 	{"\n",							' '},
@@ -3261,6 +3287,10 @@ do_flags(char *name, char *val)
 
 		   case MSYSFIXED:
 			fixedhead = 1;
+			break;
+
+		   case MDISKPART:
+			diskpartview = 1;
 			break;
 
 		   case MSYSNOSORT:
