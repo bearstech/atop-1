@@ -1,0 +1,29 @@
+#!/bin/sh
+
+set -e
+
+# 2014-02-14 vcaron@bearstech.com - move away from the /var/log/atop.log.N
+# logrotate scheme. Use upstream /var/log/atop/atop_DAY format instead.
+
+cd /var/log
+if [ -e atop.log ]; then
+  invoke-rc.d atop stop
+ 
+  mv atop.log atop/atop_$(date +%Y%m%d)
+ 
+  for log in atop.log*; do
+    mtime=$(stat --format %Y $log)
+    stamp=$(date --date=@$(($mtime - 86400)) +%Y%m%d)
+    mv $log atop/atop_$stamp
+  done
+ 
+  # invoke-rc.d atop start # dh_installinit will do it for us below
+fi
+
+# 2014-02-24 vcaron@bearstech.com - remove obsolete cron.daily file, it
+# will clash with the midnight rotation run via cron.d.
+
+rm -f /etc/cron.daily/atop
+
+#DEBHELPER#
+
