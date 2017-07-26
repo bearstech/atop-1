@@ -86,7 +86,7 @@ struct sselection {
 
 #define	MCUMUSER	'u'
 #define	MCUMPROC	'p'
-#define	MCUMCONT	'j'
+#define	MCUMCONT	'e'
 
 #define	MSORTCPU	'C'
 #define	MSORTDSK	'D'
@@ -101,7 +101,7 @@ struct sselection {
 #define	MSYSFIXED	'f'
 #define	MSYSNOSORT	'F'
 #define	MSYSLIMIT	'l'
-#define	MDISKPART	'e'
+#define	MDISKPART	'j'
 
 #define	MSELUSER	'U'
 #define	MSELPROC	'P'
