@@ -61,10 +61,6 @@ systemdinstall:	genericinstall
 		if [ ! -d $(DESTDIR)$(PMPATHD) ]; 			\
 		then	mkdir -p $(DESTDIR)$(PMPATHD); fi
 		#
-		cp atop.service       $(DESTDIR)$(SYSDPATH)
-		chmod 0644            $(DESTDIR)$(SYSDPATH)/atop.service
-		cp atopacct.service   $(DESTDIR)$(SYSDPATH)
-		chmod 0644            $(DESTDIR)$(SYSDPATH)/atopacct.service
 		cp atop.cronsystemd   $(DESTDIR)$(CRNPATH)/atop
 		cp atop-pm.sh         $(DESTDIR)$(PMPATHD)
 		chmod 0711            $(DESTDIR)$(PMPATHD)/atop-pm.sh

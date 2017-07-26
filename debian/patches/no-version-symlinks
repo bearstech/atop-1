@@ -1,0 +1,15 @@
+Description: do not symlink atop(sar)-$(VERS)
+Author: Marc Haber <mh+debian-packages@zugschlus.de>
+Forwarded: via web form
+Last-Update: 2016-08-07
+--- a/Makefile
++++ b/Makefile
+@@ -138,8 +138,6 @@ genericinstall:	atop atopacctd
+ 		cp atopacctd  		$(DESTDIR)$(SBINPATH)/atopacctd
+ 		chown root		$(DESTDIR)$(SBINPATH)/atopacctd
+ 		chmod 0700 		$(DESTDIR)$(SBINPATH)/atopacctd
+-		cp atop   		$(DESTDIR)$(BINPATH)/atop-$(VERS)
+-		ln -sf atop-$(VERS)     $(DESTDIR)$(BINPATH)/atopsar-$(VERS)
+ 		cp atop.daily    	$(DESTDIR)$(SCRPATH)
+ 		chmod 0711 	 	$(DESTDIR)$(SCRPATH)/atop.daily
+ 		cp man/atop.1    	$(DESTDIR)$(MAN1PATH)

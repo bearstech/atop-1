@@ -1,6 +1,4 @@
-#! /bin/bash
-
-#DEBHELPER#
+#!/bin/bash
 
 set -e
 
@@ -9,8 +7,4 @@ if dpkg-maintscript-helper supports rm_conffile; then
 		/etc/logrotate.d/atop 1.26-2~ -- "$@"
 fi
 
-if [ "$1" = "purge" ]
-then
-	rm -rf /var/log/atop
-fi
-
+#DEBHELPER#

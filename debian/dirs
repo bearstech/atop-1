@@ -1,4 +1,3 @@
-etc/default
 usr/bin
 usr/share/man/man1
-var/log/atop
+usr/share/atop

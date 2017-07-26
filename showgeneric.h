@@ -101,7 +101,7 @@ struct sselection {
 #define	MSYSFIXED	'f'
 #define	MSYSNOSORT	'F'
 #define	MSYSLIMIT	'l'
-#define	MDISKPART	'j'
+#define	MDISKPART	'e'
 
 #define	MSELUSER	'U'
 #define	MSELPROC	'P'
